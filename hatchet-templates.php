@@ -137,8 +137,6 @@ function hatchet_extract_url_user($url){
  */
 
 function hatchet_get_track_link($artist,$title,$album = '_'){
-    
-    $album = urlencode($album);
     $title = urlencode($title);
     $hatchet_url = hatchet_get_album_link($artist,$album) . $title;
     return apply_filters('hatchet_get_track_link',$hatchet_url,$artist,$title,$album);
@@ -173,6 +171,7 @@ function hatchet_extract_url_track($url){
  */
 
 function hatchet_get_album_link($artist,$album){
+    $album = urlencode($album);
     $hatchet_url = hatchet_get_artist_link($artist) . $album .'/';
     return apply_filters('hatchet_get_album_link',$hatchet_url,$artist,$album);
 }
