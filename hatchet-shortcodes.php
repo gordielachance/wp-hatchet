@@ -4,13 +4,11 @@ class Hatchet_Shortcodes{
     
     function __construct() {
 
-        add_shortcode( 'hatchet-playlist', array($this, 'shortcode_playlist' ));
-        add_shortcode( 'hatchet-track', array($this, 'shortcode_track' ));
-        add_shortcode( 'hatchet-album', array($this, 'shortcode_album' ));
+        add_shortcode( 'hatchet', array($this, 'shortcode_widget' ));
 
     }
     
-    function shortcode_playlist( $args, $item_url = null) {
+    function shortcode_widget( $args, $item_url = null) {
 
         // Attributes
         extract( shortcode_atts(
@@ -18,34 +16,10 @@ class Hatchet_Shortcodes{
                 ), $args )
         );
 
-        $item = new Hatchet_Widget_Playlist($args, $item_url);
+        $item = new Hatchet_Widget($args, $item_url);
         return $item->get_html();
     }
-        
-    function shortcode_track( $args, $item_url = null) {
 
-        // Attributes
-        extract( shortcode_atts(
-                array(
-                ), $args )
-        );
-
-        $item = new Hatchet_Widget_Track($args, $item_url);
-        return $item->get_html();
-    }
-        
-    function shortcode_album( $args, $item_url = null) {
-
-        // Attributes
-        extract( shortcode_atts(
-                array(
-                ), $args )
-        );
-
-        $item = new Hatchet_Widget_Album($args, $item_url);
-        return $item->get_html();
-    }
-    
 }
 
 new Hatchet_Shortcodes();

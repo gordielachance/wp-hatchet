@@ -87,9 +87,6 @@ class Hatchet {
         require( $this->plugin_dir . 'hatchet-shortcodes.php' );
         require( $this->plugin_dir . 'hatchet-templates.php' );
         require( $this->plugin_dir . 'hatchet-widget.php' );
-        require( $this->plugin_dir . 'hatchet-widget-album.php' );
-        require( $this->plugin_dir . 'hatchet-widget-playlist.php' );
-        require( $this->plugin_dir . 'hatchet-widget-track.php' );
         require( $this->plugin_dir . 'hatchet-API.php' );
 
         //admin
