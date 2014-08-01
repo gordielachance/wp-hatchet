@@ -82,9 +82,7 @@ class Hatchet {
     }
 
     function includes(){
-        
-        
-        require( $this->plugin_dir . 'hatchet-shortcodes.php' );
+
         require( $this->plugin_dir . 'hatchet-templates.php' );
         require( $this->plugin_dir . 'hatchet-widget.php' );
         require( $this->plugin_dir . 'hatchet-API.php' );
@@ -99,6 +97,7 @@ class Hatchet {
     function setup_actions(){    
 
         add_action( 'plugins_loaded', array($this, 'upgrade'));//install and upgrade
+        add_shortcode( 'hatchet', array($this, 'shortcode_widget' ));
         
     }
         
@@ -121,6 +120,19 @@ class Hatchet {
         //upgrade DB version
         update_option($this->meta_key_db_version, $this->db_version );//upgrade DB version
     }
+    
+    function shortcode_widget( $args, $item_url = null) {
+
+        // Attributes
+        extract( shortcode_atts(
+                array(
+                ), $args )
+        );
+
+        $item = new Hatchet_Widget($args, $item_url);
+        return $item->get_html();
+    }
+    
 }
 
 /**
