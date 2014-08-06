@@ -71,7 +71,7 @@ class Hatchet {
 
             //options
             $this->options_default = array(
-                'hatchet_username'   => null,
+                'api_username'   => null,
                 'api_password'   => null
 
             );

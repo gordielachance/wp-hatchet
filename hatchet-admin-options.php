@@ -134,8 +134,8 @@ class Hatchet_Admin_Options{
             
         }else{ //sanitize values
             
-            if( isset( $input['hatchet_username'] ) ){
-                $new_input['hatchet_username'] = $input['hatchet_username'];
+            if( isset( $input['api_username'] ) ){
+                $new_input['api_username'] = $input['api_username'];
             }
             
             if( isset( $input['api_password'] ) ){
@@ -167,9 +167,9 @@ class Hatchet_Admin_Options{
     }
     
     public function api_login_callback(){
-        $option = hatchet_get_option('hatchet_username');
+        $option = hatchet_get_option('api_username');
         printf(
-            '<input type="text" name="%1$s[hatchet_username]" value="%2$s"/>',
+            '<input type="text" name="%1$s[api_username]" value="%2$s"/>',
             hatchet()->meta_key_options,
             $option
         );
